@@ -23,6 +23,14 @@ Route::get('profile',function (){
 	return view('profile');
 })->name('profile');
 
+Route::get('table',function (){
+	$people = file_get_contents(base_path('database/sample/dummy_data.json'));
+	$people = json_decode($people);
+	$people = $people->mahasiswa;
+
+	return view('table', compact('people'));
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

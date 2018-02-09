@@ -1,0 +1,41 @@
+{
+  "mahasiswa" : {
+    "0":{
+      "id" : 1,
+      "nama" : "Jati Pikukuh",
+      "usia" : 18
+    },"1":{
+      "id" : 1,
+      "nama" : "Jono Mulyana",
+      "usia" : 31
+    },"2":{
+      "id" : 1,
+      "nama" : "Agus Suyanta",
+      "usia" : 28
+    },"3":{
+      "id" : 1,
+      "nama" : "Susan Sulistya",
+      "usia" : 28
+    },"4":{
+      "id" : 1,
+      "nama" : "Shinta P",
+      "usia" : 25
+    },"5":{
+      "id" : 1,
+      "nama" : "Isnaeni",
+      "usia" : 24
+    },"6":{
+      "id" : 1,
+      "nama" : "Agus Fitri",
+      "usia" : 45
+    },"7":{
+      "id" : 1,
+      "nama" : "Joni Sumarna",
+      "usia" : 28
+    },"8":{
+      "id" : 1,
+      "nama" : "Nopi Handayana",
+      "usia" : 21
+    }
+  }
+}
