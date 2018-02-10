@@ -82,7 +82,7 @@
                 <div class="modal-footer" >
                     <form id="form_delete" onsubmit="submitDelete(this)" method="post">
                         {!! csrf_field() !!}
-                        <input type="hidden" name="method" value="DELETE">
+                        <input type="hidden" name="_method" value="DELETE">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         {{--<button type="button" class="btn btn-danger" data-token="{{ csrf_token() }}">Delete</button>--}}
                         <button type="submit" class="btn btn-danger">Hapus</button>
