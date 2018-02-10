@@ -17,9 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('person',function (Request $request){
-	if (!$request->ajax()){
-		return "";
-	}
+//	if (!$request->ajax()){
+//		return "";
+//	}
 	$people = file_get_contents(base_path('database/sample/dummy_data.json'));
 	$people = json_decode($people);
 	$people = $people->mahasiswa;
