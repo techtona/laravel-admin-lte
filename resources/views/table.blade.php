@@ -39,6 +39,7 @@
                         <td>{{$data->usia}}</td>
                         <td>
                             <button data-toggle="modal" data-target="#myModal" id="{{$data->id}}" onclick="showDetail(this);" class="btn btn-primary btn-xs"><span class="fa fa-info"></span>&nbsp; Detail</button>
+                            <button data-toggle="modal" data-target="#deleteModal" id="{{$data->id}}" onclick="showWarning(this);" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span>&nbsp; Detele</button>
                         </td>
                     </tr>
                 @endforeach
@@ -67,6 +68,29 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myDeleteModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myDeleteModalLabel">Peringatan</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <span class="fa fa-exclamation-triangle fa-5x" style="color: orange;"></span>
+                    <h3>Apakah anda yakin akan menghapus <span id="nama_delete"></span></h3>
+                </div>
+                <div class="modal-footer" >
+                    <form id="form_delete" onsubmit="submitDelete(this)" method="post">
+                        {!! csrf_field() !!}
+                        <input type="hidden" name="method" value="DELETE">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        {{--<button type="button" class="btn btn-danger" data-token="{{ csrf_token() }}">Delete</button>--}}
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
@@ -86,7 +110,21 @@
                     $("#myModalLabel").text(person.nama);
 
                 }
-            })
+            });
+        }
+        function showWarning(button) {
+            var custom_id = button.id;
+            $.ajax({
+                url : "{{route('api.person')}}",
+                method : "GET",
+                data : {"custom_id" : custom_id},
+                success : function (response) {
+                    // alert(response);
+                    var person = JSON.parse(response);
+                    $("#nama_delete").text(person.nama);
+                    $("#form_delete").attr("action","{{url('delete')}}/"+person.id);
+                }
+            });
         }
     </script>
 @endsection
