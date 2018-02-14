@@ -9,7 +9,8 @@
         <div class="box-header with-border">
             <h3 class="box-title">Update</h3>
         </div>
-        <form role="form">
+        <form role="form" method="post" action="{{route('profile.update')}}">
+            {!! csrf_field() !!}
             <div class="box-body">
                 <div class="text-center">
                     <img style="width: 200px; height: 200px" src="{{asset('images/user.jpg')}}" alt="Profile" class="img-circle">
@@ -17,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-4 col-md-offset-5">
                         <div class="form-group">
-                            <label>File input</label>
+                            <label>File</label>
                             <input type="file" name="foto_profile">
                             <p class="help-block">Example block-level help text here.</p>
                         </div>

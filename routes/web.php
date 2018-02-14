@@ -19,9 +19,8 @@ Route::get('blank',function (){
 	return view('blank');
 });
 
-Route::get('profile',function (){
-	return view('profile');
-})->name('profile');
+Route::get('profile','ProfileController@index')->name('profile.index');
+Route::post('profile','ProfileController@update')->name('profile.update');
 
 Route::get('table',function (){
 	$people = file_get_contents(base_path('database/sample/dummy_data.json'));
